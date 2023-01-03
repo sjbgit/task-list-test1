@@ -16,7 +16,7 @@ export default function TaskList() {
 
 function Task({ task }) {
   const [isEditing, setIsEditing] = useState(false);
-  const dispatch = useContext(TasksDispatchContext);
+  const { dispatch, showAlert }  = useContext(TasksDispatchContext);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -71,6 +71,9 @@ function Task({ task }) {
           id: task.id
         });
       }}>Delete</button>
+      <button onClick={() => {
+       showAlert(task.text);
+      }}>Alert</button>
     </label>
   );
 }

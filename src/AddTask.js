@@ -3,7 +3,7 @@ import { TasksDispatchContext } from './TasksContext.js';
 
 export default function AddTask() {
   const [text, setText] = useState('');
-  const dispatch = useContext(TasksDispatchContext);
+  const  { dispatch } = useContext(TasksDispatchContext);
   return (
     <>
       <input

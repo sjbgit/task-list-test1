@@ -9,32 +9,36 @@ export default function TaskApp() {
     initialTasks
   );
 
-  function handleAddTask(text) {
-    dispatch({
-      type: 'added',
-      id: nextId++,
-      text: text,
-    });
+  const showAlert = (message = 'default') => {
+    alert(message)
   }
 
-  function handleChangeTask(task) {
-    dispatch({
-      type: 'changed',
-      task: task
-    });
-  }
+  // function handleAddTask(text) {
+  //   dispatch({
+  //     type: 'added',
+  //     id: nextId++,
+  //     text: text,
+  //   });
+  // }
 
-  function handleDeleteTask(taskId) {
-    dispatch({
-      type: 'deleted',
-      id: taskId
-    });
-  }
+  // function handleChangeTask(task) {
+  //   dispatch({
+  //     type: 'changed',
+  //     task: task
+  //   });
+  // }
+
+  // function handleDeleteTask(taskId) {
+  //   dispatch({
+  //     type: 'deleted',
+  //     id: taskId
+  //   });
+  // }
 
   return (
     <>
     <TasksContext.Provider value={tasks}>
-      <TasksDispatchContext.Provider value={dispatch}>
+      <TasksDispatchContext.Provider value={ { dispatch, showAlert }}>
       <h1>Day off in Kyoto</h1>
       <AddTask />
       <TaskList />
